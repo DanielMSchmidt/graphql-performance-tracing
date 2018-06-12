@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+matrix:
+  include:
+    - script:
+      - docker build -t danielmschmidt/perf-tracing-pure-graphql ./graphql-base
+      - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      - docker push $DOCKER_USERNAME/perf-tracing-pure-graphql
