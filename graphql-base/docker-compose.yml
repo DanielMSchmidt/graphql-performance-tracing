@@ -6,6 +6,9 @@ services:
     build: ./
     ports:
       - "3000:3000"
+    environment:
+      USERS_ENDPOINT: "http://spread_daenerys:4000"
+      USER_ENDPOINT: "http://id_alfred:3000"
 
   zipkin:
     image: openzipkin/zipkin
