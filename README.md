@@ -5,10 +5,8 @@ It contains different directories representing different stages of how to do per
 
 ## TODOs
 
-- [ ] expose graphql via docker
 - [ ] let graphql do requests against small APIs
 - [ ] write marathon configs to host the different services needed
 - [ ] write marathon config for zipkin
 - [ ] implement a version of performance tracing with only graphql being mointored
 - [ ] implement a version of performance tracing with also the backend services being monitored
-

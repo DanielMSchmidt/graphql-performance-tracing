@@ -1,0 +1,54 @@
+version: "3"
+services:
+
+  # GraphQLs
+  graphql:
+    build: ./
+    ports:
+      - "3000:3000"
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+
+  # ID-Services
+  id_alfred:
+    image: danielmschmidt/zipkin-playground-id
+    ports:
+      - "3001:3000"
+    environment:
+      ZIPKIN_HOST_PORT: "http://zipkin:9411"
+      SERVICE: "id-alfred"
+
+  id_batman:
+    image: danielmschmidt/zipkin-playground-id
+    ports:
+      - "3002:3000"
+    environment:
+      ZIPKIN_HOST_PORT: "http://zipkin:9411"
+      SERVICE: "id-batman"
+  
+  id_catwoman:
+    image: danielmschmidt/zipkin-playground-id
+    ports:
+      - "3003:3000"
+    environment:
+      ZIPKIN_HOST_PORT: "http://zipkin:9411"
+      SERVICE: "id-catwoman"
+
+  spread_daenerys:
+    image: danielmschmidt/zipkin-playground-spread
+    ports:
+      - "4001:4000"
+    environment:
+      ZIPKIN_HOST_PORT: "http://zipkin:9411"
+      SERVICE: "spread-daenerys"
+  
+  spread_eddard_stark:
+    image: danielmschmidt/zipkin-playground-spread
+    ports:
+      - "4002:4000"
+    environment:
+      ZIPKIN_HOST_PORT: "http://zipkin:9411"
+      SERVICE: "spread-eddard-stark"
