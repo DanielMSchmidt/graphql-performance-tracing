@@ -11,13 +11,13 @@ services:
       USER_ENDPOINT: "http://id_alfred:3000"
 
   zipkin:
-    image: openzipkin/zipkin
+    image: openzipkin/zipkin:latest@sha256:a6190bb303ce4c219bce7a5c74dd3c088d41bf1594661be2c32b089d87d9b8fd
     ports:
       - "9411:9411"
 
   # ID-Services
   id_alfred:
-    image: danielmschmidt/zipkin-playground-id
+    image: danielmschmidt/zipkin-playground-id:latest@sha256:d57fca9ce7a8e6ce4d1ff6ca45d045709d2df910f4114504b6fd42db0722459a
     ports:
       - "3001:3000"
     environment:
@@ -25,7 +25,7 @@ services:
       SERVICE: "id-alfred"
 
   id_batman:
-    image: danielmschmidt/zipkin-playground-id
+    image: danielmschmidt/zipkin-playground-id:latest@sha256:d57fca9ce7a8e6ce4d1ff6ca45d045709d2df910f4114504b6fd42db0722459a
     ports:
       - "3002:3000"
     environment:
@@ -33,7 +33,7 @@ services:
       SERVICE: "id-batman"
   
   id_catwoman:
-    image: danielmschmidt/zipkin-playground-id
+    image: danielmschmidt/zipkin-playground-id:latest@sha256:d57fca9ce7a8e6ce4d1ff6ca45d045709d2df910f4114504b6fd42db0722459a
     ports:
       - "3003:3000"
     environment:
@@ -41,7 +41,7 @@ services:
       SERVICE: "id-catwoman"
 
   spread_daenerys:
-    image: danielmschmidt/zipkin-playground-spread
+    image: danielmschmidt/zipkin-playground-spread:latest@sha256:50b137fac1e1c48c3e77ae79a918267f51a79c4e65769adc2b3f9f12910ee263
     ports:
       - "4001:4000"
     environment:
@@ -49,7 +49,7 @@ services:
       SERVICE: "spread-daenerys"
   
   spread_eddard_stark:
-    image: danielmschmidt/zipkin-playground-spread
+    image: danielmschmidt/zipkin-playground-spread:latest@sha256:50b137fac1e1c48c3e77ae79a918267f51a79c4e65769adc2b3f9f12910ee263
     ports:
       - "4002:4000"
     environment:
