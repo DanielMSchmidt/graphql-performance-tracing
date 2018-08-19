@@ -1,6 +1,6 @@
 const { makeExecutableSchema } = require("graphql-tools");
 const fetch = require("./instrumentedFetch");
-const { server: serverTracer } = require("./tracer");
+const { local: localTracer } = require("./tracer");
 
 const typeDefs = `
 type User {
@@ -85,14 +85,28 @@ const schema = makeExecutableSchema({
   resolvers: {
     Query: {
       async users(_obj, _args, context) {
-        return getUsers(context.rootSpan);
+        const span = localTracer.startSpan("users", {
+          childOf: context.rootSpan
+        });
+
+        const users = await getUsers(span);
+
+        span.finish();
+        return users;
       }
     },
     User: {
-      friends(obj, _args, context) {
-        return Promise.all(
-          obj.friends.map(friendId => getUser(friendId, context.rootSpan))
+      async friends(obj, _args, context) {
+        const span = localTracer.startSpan("friends", {
+          childOf: context.rootSpan
+        });
+
+        const friends = await Promise.all(
+          obj.friends.map(friendId => getUser(friendId, span))
         );
+
+        span.finish();
+        return friends;
       }
     }
   }
