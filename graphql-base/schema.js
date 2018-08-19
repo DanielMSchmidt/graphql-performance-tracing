@@ -1,5 +1,6 @@
 const { makeExecutableSchema } = require("graphql-tools");
-const fetch = require("node-fetch");
+const fetch = require("./instrumentedFetch");
+const { server: serverTracer } = require("./tracer");
 
 const typeDefs = `
 type User {
@@ -50,8 +51,8 @@ function findUser(id) {
   return USERS.find(user => user.id === id);
 }
 
-function getUser(id) {
-  return fetch(`${USER_ENDPOINT}?timeout=${SPREAD_DELAY}`, {
+function getUser(id, rootSpan) {
+  return fetch(rootSpan, `${USER_ENDPOINT}?timeout=${SPREAD_DELAY}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -64,8 +65,8 @@ const SPREAD_DELAY = 50;
 const USERS_ENDPOINT = process.env.USERS_ENDPOINT;
 const USER_ENDPOINT = process.env.USER_ENDPOINT;
 
-function getUsers() {
-  return fetch(`${USERS_ENDPOINT}?timeout=${SPREAD_DELAY}`, {
+function getUsers(rootSpan) {
+  return fetch(rootSpan, `${USERS_ENDPOINT}?timeout=${SPREAD_DELAY}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -83,13 +84,15 @@ const schema = makeExecutableSchema({
   typeDefs,
   resolvers: {
     Query: {
-      async users(_obj, _args, _context) {
-        return await getUsers();
+      async users(_obj, _args, context) {
+        return getUsers(context.rootSpan);
       }
     },
     User: {
-      friends(obj, _args, _context) {
-        return Promise.all(obj.friends.map(friendId => getUser(friendId)));
+      friends(obj, _args, context) {
+        return Promise.all(
+          obj.friends.map(friendId => getUser(friendId, context.rootSpan))
+        );
       }
     }
   }
