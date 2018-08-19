@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+app.get("/", (_, res) => res.redirect("/graphiql"));
 app.use("/graphql", bodyParser.json(), graphqlExpress({ schema }));
 app.get("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
 
