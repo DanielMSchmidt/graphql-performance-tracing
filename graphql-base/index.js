@@ -1,8 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { graphqlExpress, graphiqlExpress } = require("apollo-server-express");
+const ApolloOpentracing = require("apollo-opentracing").default;
+
 const schema = require("./schema");
-const { server: serverTracer } = require("./tracer");
+const { server: serverTracer, local: localTracer } = require("./tracer");
 
 const PORT = process.env.PORT || 3000;
 
@@ -14,17 +16,9 @@ app.use(
   bodyParser.json(),
   graphqlExpress({
     schema,
-    context: () => {
-      const rootSpan = serverTracer.startSpan("Query");
-      return { rootSpan };
-    },
-    formatResponse: (resp, { context }) => {
-      // super hacky solution tailored for exactly this problem
-      if (!resp.data.__schema) {
-        context.rootSpan.finish();
-      }
-      return resp;
-    }
+    extensions: [
+      () => new ApolloOpentracing({ server: serverTracer, local: localTracer })
+    ]
   })
 );
 app.get("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));

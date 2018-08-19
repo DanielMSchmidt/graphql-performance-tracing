@@ -84,29 +84,15 @@ const schema = makeExecutableSchema({
   typeDefs,
   resolvers: {
     Query: {
-      async users(_obj, _args, context) {
-        const span = localTracer.startSpan("users", {
-          childOf: context.rootSpan
-        });
-
-        const users = await getUsers(span);
-
-        span.finish();
-        return users;
+      users(_obj, _args, context) {
+        return getUsers(context.span);
       }
     },
     User: {
-      async friends(obj, _args, context) {
-        const span = localTracer.startSpan("friends", {
-          childOf: context.rootSpan
-        });
-
-        const friends = await Promise.all(
-          obj.friends.map(friendId => getUser(friendId, span))
+      friends(obj, _args, context) {
+        return Promise.all(
+          obj.friends.map(friendId => getUser(friendId, context.span))
         );
-
-        span.finish();
-        return friends;
       }
     }
   }
