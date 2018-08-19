@@ -9,6 +9,7 @@ services:
     environment:
       USERS_ENDPOINT: "http://spread_daenerys:4000"
       USER_ENDPOINT: "http://id_alfred:3000"
+      ZIPKIN_HOST_PORT: "http://zipkin:9411"
 
   zipkin:
     image: openzipkin/zipkin
