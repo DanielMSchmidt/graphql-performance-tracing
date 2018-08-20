@@ -28,7 +28,7 @@
           }
         ]
       },
-      "cpus": 0.2,
+      "cpus": 0.1,
       "disk": 0,
       "executor": "",
       "healthChecks": [
@@ -94,7 +94,7 @@
           }
         ]
       },
-      "cpus": 0.2,
+      "cpus": 0.1,
       "disk": 0,
       "executor": "",
       "healthChecks": [
@@ -160,7 +160,7 @@
           }
         ]
       },
-      "cpus": 0.2,
+      "cpus": 0.1,
       "disk": 0,
       "executor": "",
       "healthChecks": [
@@ -202,9 +202,7 @@
     },
     {
       "id": "/marathon-lb",
-      "acceptedResourceRoles": [
-        "slave_public"
-      ],
+      "acceptedResourceRoles": ["slave_public"],
       "args": [
         "sse",
         "-m",
@@ -736,7 +734,7 @@
           }
         ]
       },
-      "cpus": 0.2,
+      "cpus": 0.1,
       "disk": 0,
       "executor": "",
       "healthChecks": [
@@ -803,7 +801,7 @@
           }
         ]
       },
-      "cpus": 0.2,
+      "cpus": 0.1,
       "disk": 0,
       "executor": "",
       "healthChecks": [
@@ -870,7 +868,7 @@
           }
         ]
       },
-      "cpus": 0.2,
+      "cpus": 0.1,
       "disk": 0,
       "executor": "",
       "healthChecks": [
