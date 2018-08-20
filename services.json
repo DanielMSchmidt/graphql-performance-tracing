@@ -3,6 +3,204 @@
   "dependencies": [],
   "apps": [
     {
+      "id": "/id-1",
+      "backoffFactor": 1.15,
+      "backoffSeconds": 1,
+      "container": {
+        "type": "DOCKER",
+        "docker": {
+          "forcePullImage": true,
+          "image": "danielmschmidt/zipkin-playground-id",
+          "parameters": [],
+          "privileged": false
+        },
+        "volumes": [],
+        "portMappings": [
+          {
+            "containerPort": 3000,
+            "hostPort": 0,
+            "labels": {
+              "VIP_0": "/id:80"
+            },
+            "name": "default",
+            "protocol": "tcp",
+            "servicePort": 10101
+          }
+        ]
+      },
+      "cpus": 0.2,
+      "disk": 0,
+      "executor": "",
+      "healthChecks": [
+        {
+          "gracePeriodSeconds": 300,
+          "intervalSeconds": 60,
+          "maxConsecutiveFailures": 3,
+          "path": "/health",
+          "portIndex": 0,
+          "protocol": "MESOS_HTTP",
+          "ipProtocol": "IPv4",
+          "timeoutSeconds": 20,
+          "delaySeconds": 15
+        }
+      ],
+      "instances": 1,
+      "labels": {
+        "TIMEOUT": "100",
+        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+      },
+      "maxLaunchDelaySeconds": 3600,
+      "mem": 150,
+      "gpus": 0,
+      "networks": [
+        {
+          "mode": "container/bridge"
+        }
+      ],
+      "requirePorts": false,
+      "upgradeStrategy": {
+        "maximumOverCapacity": 1,
+        "minimumHealthCapacity": 1
+      },
+      "killSelection": "YOUNGEST_FIRST",
+      "unreachableStrategy": {
+        "inactiveAfterSeconds": 0,
+        "expungeAfterSeconds": 0
+      }
+    },
+    {
+      "id": "/id-2",
+      "backoffFactor": 1.15,
+      "backoffSeconds": 1,
+      "container": {
+        "type": "DOCKER",
+        "docker": {
+          "forcePullImage": true,
+          "image": "danielmschmidt/zipkin-playground-id",
+          "parameters": [],
+          "privileged": false
+        },
+        "volumes": [],
+        "portMappings": [
+          {
+            "containerPort": 3000,
+            "hostPort": 0,
+            "labels": {
+              "VIP_0": "/id:80"
+            },
+            "name": "default",
+            "protocol": "tcp",
+            "servicePort": 10101
+          }
+        ]
+      },
+      "cpus": 0.2,
+      "disk": 0,
+      "executor": "",
+      "healthChecks": [
+        {
+          "gracePeriodSeconds": 300,
+          "intervalSeconds": 60,
+          "maxConsecutiveFailures": 3,
+          "path": "/health",
+          "portIndex": 0,
+          "protocol": "MESOS_HTTP",
+          "ipProtocol": "IPv4",
+          "timeoutSeconds": 20,
+          "delaySeconds": 15
+        }
+      ],
+      "instances": 1,
+      "labels": {
+        "TIMEOUT": "1000",
+        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+      },
+      "maxLaunchDelaySeconds": 3600,
+      "mem": 150,
+      "gpus": 0,
+      "networks": [
+        {
+          "mode": "container/bridge"
+        }
+      ],
+      "requirePorts": false,
+      "upgradeStrategy": {
+        "maximumOverCapacity": 1,
+        "minimumHealthCapacity": 1
+      },
+      "killSelection": "YOUNGEST_FIRST",
+      "unreachableStrategy": {
+        "inactiveAfterSeconds": 0,
+        "expungeAfterSeconds": 0
+      }
+    },
+    {
+      "id": "/id-3",
+      "backoffFactor": 1.15,
+      "backoffSeconds": 1,
+      "container": {
+        "type": "DOCKER",
+        "docker": {
+          "forcePullImage": true,
+          "image": "danielmschmidt/zipkin-playground-id",
+          "parameters": [],
+          "privileged": false
+        },
+        "volumes": [],
+        "portMappings": [
+          {
+            "containerPort": 3000,
+            "hostPort": 0,
+            "labels": {
+              "VIP_0": "/id:80"
+            },
+            "name": "default",
+            "protocol": "tcp",
+            "servicePort": 10101
+          }
+        ]
+      },
+      "cpus": 0.2,
+      "disk": 0,
+      "executor": "",
+      "healthChecks": [
+        {
+          "gracePeriodSeconds": 300,
+          "intervalSeconds": 60,
+          "maxConsecutiveFailures": 3,
+          "path": "/health",
+          "portIndex": 0,
+          "protocol": "MESOS_HTTP",
+          "ipProtocol": "IPv4",
+          "timeoutSeconds": 20,
+          "delaySeconds": 15
+        }
+      ],
+      "instances": 1,
+      "labels": {
+        "TIMEOUT": "400",
+        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+      },
+      "maxLaunchDelaySeconds": 3600,
+      "mem": 150,
+      "gpus": 0,
+      "networks": [
+        {
+          "mode": "container/bridge"
+        }
+      ],
+      "requirePorts": false,
+      "upgradeStrategy": {
+        "maximumOverCapacity": 1,
+        "minimumHealthCapacity": 1
+      },
+      "killSelection": "YOUNGEST_FIRST",
+      "unreachableStrategy": {
+        "inactiveAfterSeconds": 0,
+        "expungeAfterSeconds": 0
+      }
+    },
+    {
       "id": "/marathon-lb",
       "acceptedResourceRoles": [
         "slave_public"
@@ -516,38 +714,52 @@
       "id": "/spread-1",
       "backoffFactor": 1.15,
       "backoffSeconds": 1,
-      "cmd": "echo \"spread-1\" > index.html && python -m http.server 80",
       "container": {
         "type": "DOCKER",
         "docker": {
-          "forcePullImage": false,
-          "image": "python:3",
+          "forcePullImage": true,
+          "image": "danielmschmidt/zipkin-playground-spread",
           "parameters": [],
           "privileged": false
         },
         "volumes": [],
         "portMappings": [
           {
-            "containerPort": 80,
+            "containerPort": 4000,
             "hostPort": 0,
             "labels": {
               "VIP_0": "/spread:80"
             },
-            "name": "test",
+            "name": "default",
             "protocol": "tcp",
             "servicePort": 10101
           }
         ]
       },
-      "cpus": 0.1,
+      "cpus": 0.2,
       "disk": 0,
       "executor": "",
+      "healthChecks": [
+        {
+          "gracePeriodSeconds": 300,
+          "intervalSeconds": 60,
+          "maxConsecutiveFailures": 3,
+          "path": "/health",
+          "portIndex": 0,
+          "protocol": "MESOS_HTTP",
+          "ipProtocol": "IPv4",
+          "timeoutSeconds": 20,
+          "delaySeconds": 15
+        }
+      ],
       "instances": 1,
       "labels": {
-        "Label": "1"
+        "TIMEOUT": "100",
+        "DELAY": "300",
+        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 128,
+      "mem": 150,
       "gpus": 0,
       "networks": [
         {
@@ -569,38 +781,52 @@
       "id": "/spread-2",
       "backoffFactor": 1.15,
       "backoffSeconds": 1,
-      "cmd": "echo \"spread-2\" > index.html && python -m http.server 80",
       "container": {
         "type": "DOCKER",
         "docker": {
-          "forcePullImage": false,
-          "image": "python:3",
+          "forcePullImage": true,
+          "image": "danielmschmidt/zipkin-playground-spread",
           "parameters": [],
           "privileged": false
         },
         "volumes": [],
         "portMappings": [
           {
-            "containerPort": 80,
+            "containerPort": 4000,
             "hostPort": 0,
             "labels": {
               "VIP_0": "/spread:80"
             },
-            "name": "test",
+            "name": "default",
             "protocol": "tcp",
             "servicePort": 10102
           }
         ]
       },
-      "cpus": 0.1,
+      "cpus": 0.2,
       "disk": 0,
       "executor": "",
+      "healthChecks": [
+        {
+          "gracePeriodSeconds": 300,
+          "intervalSeconds": 60,
+          "maxConsecutiveFailures": 3,
+          "path": "/health",
+          "portIndex": 0,
+          "protocol": "MESOS_HTTP",
+          "ipProtocol": "IPv4",
+          "timeoutSeconds": 20,
+          "delaySeconds": 15
+        }
+      ],
       "instances": 1,
       "labels": {
-        "Label": "2"
+        "TIMEOUT": "500",
+        "DELAY": "50",
+        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 128,
+      "mem": 150,
       "gpus": 0,
       "networks": [
         {
@@ -622,38 +848,52 @@
       "id": "/spread-3",
       "backoffFactor": 1.15,
       "backoffSeconds": 1,
-      "cmd": "echo \"spread-3\" > index.html && python -m http.server 80",
       "container": {
         "type": "DOCKER",
         "docker": {
-          "forcePullImage": false,
-          "image": "python:3",
+          "forcePullImage": true,
+          "image": "danielmschmidt/zipkin-playground-spread",
           "parameters": [],
           "privileged": false
         },
         "volumes": [],
         "portMappings": [
           {
-            "containerPort": 80,
+            "containerPort": 4000,
             "hostPort": 0,
             "labels": {
               "VIP_0": "/spread:80"
             },
-            "name": "test",
+            "name": "default",
             "protocol": "tcp",
             "servicePort": 10103
           }
         ]
       },
-      "cpus": 0.1,
+      "cpus": 0.2,
       "disk": 0,
       "executor": "",
+      "healthChecks": [
+        {
+          "gracePeriodSeconds": 300,
+          "intervalSeconds": 60,
+          "maxConsecutiveFailures": 3,
+          "path": "/health",
+          "portIndex": 0,
+          "protocol": "MESOS_HTTP",
+          "ipProtocol": "IPv4",
+          "timeoutSeconds": 20,
+          "delaySeconds": 15
+        }
+      ],
       "instances": 1,
       "labels": {
-        "Label": "3"
+        "TIMEOUT": "50",
+        "DELAY": "400",
+        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 128,
+      "mem": 150,
       "gpus": 0,
       "networks": [
         {
@@ -688,7 +928,9 @@
           {
             "containerPort": 9411,
             "hostPort": 0,
-            "labels": {},
+            "labels": {
+              "VIP_0": "/zipkin:9411"
+            },
             "name": "default",
             "protocol": "tcp",
             "servicePort": 10004
