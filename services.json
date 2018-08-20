@@ -50,7 +50,7 @@
         "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 150,
+      "mem": 100,
       "gpus": 0,
       "networks": [
         {
@@ -116,7 +116,7 @@
         "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 150,
+      "mem": 100,
       "gpus": 0,
       "networks": [
         {
@@ -182,7 +182,7 @@
         "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 150,
+      "mem": 100,
       "gpus": 0,
       "networks": [
         {
@@ -757,7 +757,7 @@
         "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 150,
+      "mem": 100,
       "gpus": 0,
       "networks": [
         {
@@ -824,7 +824,7 @@
         "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 150,
+      "mem": 100,
       "gpus": 0,
       "networks": [
         {
@@ -891,7 +891,7 @@
         "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
-      "mem": 150,
+      "mem": 100,
       "gpus": 0,
       "networks": [
         {
