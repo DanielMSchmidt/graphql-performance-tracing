@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.get("/", (_, res) => res.redirect("/graphiql"));
+app.get("/health", (_, res) => res.sendStatus(200));
 app.use(
   "/graphql",
   bodyParser.json(),
