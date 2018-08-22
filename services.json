@@ -29,7 +29,9 @@
       "cpus": 1,
       "disk": 0,
       "env": {
-        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411",
+        "USERS_ENDPOINT": "http://spread.marathon.l4lb.thisdcos.directory",
+        "USER_ENDPOINT": "http://id.marathon.l4lb.thisdcos.directory"
       },
       "executor": "",
       "healthChecks": [
