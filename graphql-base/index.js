@@ -6,7 +6,7 @@ const ApolloOpentracing = require("apollo-opentracing").default;
 const schema = require("./schema");
 const { server: serverTracer, local: localTracer } = require("./tracer");
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 const app = express();
 
