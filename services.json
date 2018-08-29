@@ -115,9 +115,9 @@
         }
       ],
       "instances": 1,
-      "labels": {
+      "env": {
         "TIMEOUT": "100",
-        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -181,9 +181,9 @@
         }
       ],
       "instances": 1,
-      "labels": {
+      "env": {
         "TIMEOUT": "1000",
-        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -247,9 +247,9 @@
         }
       ],
       "instances": 1,
-      "labels": {
+      "env": {
         "TIMEOUT": "400",
-        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -821,10 +821,10 @@
         }
       ],
       "instances": 1,
-      "labels": {
+      "env": {
         "TIMEOUT": "100",
         "DELAY": "300",
-        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -888,10 +888,10 @@
         }
       ],
       "instances": 1,
-      "labels": {
+      "env": {
         "TIMEOUT": "500",
         "DELAY": "50",
-        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -955,10 +955,10 @@
         }
       ],
       "instances": 1,
-      "labels": {
+      "env": {
         "TIMEOUT": "50",
         "DELAY": "400",
-        "ZIPKIN_HOST_PORT": "zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
