@@ -117,7 +117,8 @@
       "instances": 1,
       "env": {
         "TIMEOUT": "100",
-        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411",
+        "SERVICE": "id-1"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -183,7 +184,8 @@
       "instances": 1,
       "env": {
         "TIMEOUT": "1000",
-        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411",
+        "SERVICE": "id-2"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -249,7 +251,8 @@
       "instances": 1,
       "env": {
         "TIMEOUT": "400",
-        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411",
+        "SERVICE": "id-3"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -824,7 +827,8 @@
       "env": {
         "TIMEOUT": "100",
         "DELAY": "300",
-        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411",
+        "SERVICE": "spread-1"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -891,7 +895,8 @@
       "env": {
         "TIMEOUT": "500",
         "DELAY": "50",
-        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411",
+        "SERVICE": "spread-2"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
@@ -958,7 +963,8 @@
       "env": {
         "TIMEOUT": "50",
         "DELAY": "400",
-        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411"
+        "ZIPKIN_HOST_PORT": "http://zipkin.marathon.l4lb.thisdcos.directory:9411",
+        "SERVICE": "spread-3"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 100,
