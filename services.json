@@ -51,7 +51,7 @@
       "labels": {
         "HAPROXY_GROUP": "external",
         "HAPROXY_0_STICKY": "true",
-        "HAPROXY_0_VHOST": "@public_slave_host"
+        "HAPROXY_0_VHOST": "ec2-18-236-197-191.us-west-2.compute.amazonaws.com"
       },
       "maxLaunchDelaySeconds": 3600,
       "mem": 512,
@@ -1012,7 +1012,7 @@
         ]
       },
       "cpus": 1,
-      "disk": 0,
+      "disk": 70000,
       "executor": "",
       "healthChecks": [
         {
@@ -1031,7 +1031,7 @@
       "labels": {
         "HAPROXY_GROUP": "external",
         "HAPROXY_0_STICKY": "true",
-        "HAPROXY_0_VHOST": "@public_slave_host",
+        "HAPROXY_0_VHOST": "ec2-18-236-197-191.us-west-2.compute.amazonaws.com",
         "HAPROXY_0_PORT": "9411"
       },
       "maxLaunchDelaySeconds": 3600,
@@ -1057,3 +1057,4 @@
   "groups": [],
   "pods": []
 }
+
