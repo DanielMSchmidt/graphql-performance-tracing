@@ -84,14 +84,14 @@ const schema = makeExecutableSchema({
   typeDefs,
   resolvers: {
     Query: {
-      users(_obj, _args, context) {
-        return getUsers(context.span);
+      users(_obj, _args, _context, info) {
+        return getUsers(info.span);
       }
     },
     User: {
-      friends(obj, _args, context) {
+      friends(obj, _args, _context, info) {
         return Promise.all(
-          obj.friends.map(friendId => getUser(friendId, context.span))
+          obj.friends.map(friendId => getUser(friendId, info.span))
         );
       }
     }
