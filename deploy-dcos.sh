@@ -1027,7 +1027,7 @@ cat << EOF > ./services.json
         ]
       },
       "cpus": 1,
-      "disk": 70000,
+      "disk": 30000,
       "executor": "",
       "healthChecks": [
         {
