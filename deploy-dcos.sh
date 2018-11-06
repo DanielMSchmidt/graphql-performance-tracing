@@ -1027,7 +1027,7 @@ cat << EOF > ./services.json
         ]
       },
       "cpus": 1,
-      "disk": 30000,
+      "disk": 300,
       "executor": "",
       "healthChecks": [
         {
@@ -1076,7 +1076,7 @@ cat << EOF > ./services.json
 EOF
 
 # Deploy
-curl -skSL -X PUT -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' -d @services.json $(dcos config show core.dcos_url)/service/marathon/v2/groups
+curl -skSL -X PUT -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' -d @services.json "$(dcos config show core.dcos_url)/service/marathon/v2/groups?force=true"
 
 sleep 3
 # Open cluster
