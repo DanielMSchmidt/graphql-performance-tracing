@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "apollo-opentracing": "1.1.0",
-    "apollo-server-express": "2.0.0-beta.7",
+    "apollo-server-express": "2.6.9",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.7",
     "express": "^4.16.3",
