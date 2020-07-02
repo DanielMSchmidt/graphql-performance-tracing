@@ -24,6 +24,6 @@
     "zipkin-instrumentation-express": "^0.14.1",
     "zipkin-instrumentation-fetch": "^0.14.1",
     "zipkin-javascript-opentracing": "^2.0.0",
-    "zipkin-transport-http": "^0.14.1"
+    "zipkin-transport-http": "^0.22.0"
   }
 }
