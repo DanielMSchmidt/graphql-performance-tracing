@@ -23,7 +23,7 @@
     "zipkin-context-cls": "^0.13.0",
     "zipkin-instrumentation-express": "^0.14.1",
     "zipkin-instrumentation-fetch": "^0.14.1",
-    "zipkin-javascript-opentracing": "^2.0.0",
+    "zipkin-javascript-opentracing": "^3.0.0",
     "zipkin-transport-http": "^0.14.1"
   }
 }
