@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:16-alpine
 
 ADD package*.json ./
 RUN npm install
